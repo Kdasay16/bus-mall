@@ -1,0 +1,30 @@
+html {
+  text-align: center;
+}
+body {
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  color: #44A1A0;
+}
+
+.imgs {
+  margin:auto;
+max-width: 50px;
+  width: 24%;
+
+}
+/*#center img {
+  display: inline-block;
+  width: 24%;
+
+}
+#right img {
+  display: inline-block;
+  width: 24%;
+}*/
+/*img {
+  display: block;
+  width: 30%;
+}*/
