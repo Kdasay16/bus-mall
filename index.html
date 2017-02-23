@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Voting</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
 
   <header></header>
@@ -11,13 +12,15 @@
   <body>
     <h1>What's your vote?</h1>
     <h3>Click on the image that you like most out of each selection.</h3>
-    <section class = "img-container" id="img-container">
-      <div class = "imgs" id = "left"></div>
-      <div class = "imgs" id = "center"></div>
-      <div class = "imgs" id = "right"></div>
+    <section id="img-container">
+        <img id = "left">
+        <img id = "center">
+        <img id = "right">
     </section>
 
+    <canvas id = "chart"></canvas>
 
   <script src="app.js" type="text/javascript"></script>
+  <script src="chart.js" type="text/javascript"></script>
   </body>
 </html>
