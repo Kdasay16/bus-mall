@@ -34,7 +34,7 @@ var chartData = {
     datasets: [{
       label: 'Number of Votes / Picture', //chart title
       data: clickData,
-      backgroundColor: navy,
+      backgroundColor: 'navy',
     }],
   },
   options: {

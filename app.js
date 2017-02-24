@@ -9,7 +9,7 @@ var imgContainerEl = document.getElementById('img-container');
 var prevImgs = []; // this reassigns the numbers that were used in the previous roll
 var allProducts = [];
 var totalClicks = 0;
-var clickLimit = 5;
+var clickLimit = 25;
 
 var img = [
   { path:'img/bag.jpg', name: 'bag'},

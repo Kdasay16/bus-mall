@@ -15,3 +15,12 @@ h3 {
 #img-container img{
   width: 25%;
 }
+canvas {
+  width: 75%;
+  min-width: 400px;
+}
+p {
+  text-align: left;
+  font-size: 25px;
+  margin-top: 200px;
+}
