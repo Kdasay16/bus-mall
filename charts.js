@@ -1,16 +1,13 @@
 'use strict';
 
-function saveProductsToLocalStorage(allProducts) {
-  localStorage.allProducts = JSON.stringify(allProducts);
-  console.log('Saved to local storage');
-}
+var ctx = document.getElementById('chart').getContext('2d'); //ctx is short for context
 
 var allProducts = JSON.parse(localStorage.allProducts); //grabbing data to form chart. Put on globel scope
 
 function allProductClicks(products){
   var productClicks = [];
 
-  for (var i = 0; i < products.length; i++) {
+  for (var i = 0; i < products.length; i++) { //creating array of clicks
     productClicks.push(products[i].clicks);
   }
   console.log('All Product Clicks: ', productClicks);
@@ -27,10 +24,7 @@ function allProductNames(products){
   return productNames;
 }
 
-var clickData = allProductClicks(allProducts); //products is now allProducts. replacingvar data above
-var nameData = allProductNames(allProducts);
-
-var clickData = allProductClicks(allProducts); //products is now allProducts. replacingvar data above
+var clickData = allProductClicks(allProducts); //products is now allProducts.
 var nameData = allProductNames(allProducts);
 
 var chartData = {

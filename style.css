@@ -8,6 +8,10 @@ h1 {
 h3 {
   text-align: center;
 }
+#left {
+  border: 2px;
+  border-color: black;
+}
 #img-container img{
   width: 25%;
 }

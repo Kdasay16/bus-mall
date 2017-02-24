@@ -5,12 +5,11 @@ var leftEl = document.getElementById('left');
 var centerEl = document.getElementById('center');
 var rightEl = document.getElementById('right');
 var imgContainerEl = document.getElementById('img-container');
-var ctx = document.getElementById('chart').getContext('2d'); //ctx is short for context
 
 var prevImgs = []; // this reassigns the numbers that were used in the previous roll
 var allProducts = [];
 var totalClicks = 0;
-var clickLimit = 25;
+var clickLimit = 5;
 
 var img = [
   { path:'img/bag.jpg', name: 'bag'},
@@ -35,8 +34,6 @@ var img = [
   { path:'img/water-can.jpg', name: 'water can'},
 ];
 
-//REAL CODE TO FOLLOW//
-
 function Product(name, path){ //product cunstructor
   this.name = name;
   this.views = 0;
@@ -44,8 +41,8 @@ function Product(name, path){ //product cunstructor
   this.path = path;
 }
 for (var i = 0; i < img.length; i++) {  //create array of all products
-  console.log('name: ', img[i].name);
-  console.log('path: ', img[i].path);
+  // console.log('name: ', img[i].name);
+  // console.log('path: ', img[i].path);
   allProducts.push(new Product(img[i].name, img[i].path));
 }
 console.log(allProducts);
@@ -78,18 +75,18 @@ function drawImgs(){ //generating imgs on the page
 
   var leftImgElement = document.getElementById('left');
   leftImgElement.setAttribute('src', allProducts[prevImgs[0]].path);
-  // document.getElementById('left') allProducts
-  // leftImgElement.setAttribute('id', img[prevImgs[0]].name);
+  leftImgElement.dataset.productIndex = prevImgs[0];
+  allProducts[prevImgs[0]].views++;
 
   var centerImgElement = document.getElementById('center');
   centerImgElement.setAttribute('src', allProducts[prevImgs[1]].path);
-
-  // centerImgElement.setAttribute('id', img[prevImgs[1]].name);
+  centerImgElement.dataset.productIndex = prevImgs[1];
+  allProducts[prevImgs[1]].views++;
 
   var rightImgElement = document.getElementById('right');
   rightImgElement.setAttribute('src', allProducts[prevImgs[2]].path);
-
-  // rightImgElement.setAttribute('id', img[prevImgs[2]].name);
+  rightImgElement.dataset.productIndex = prevImgs[2];
+  allProducts[prevImgs[2]].views++;
 }
 chooseRandomPics();
 drawImgs();
@@ -97,10 +94,24 @@ drawImgs();
 imgContainerEl.addEventListener('click', handleClick); //attaching the click event to the img-container
 function handleClick(event){
   console.log('handle Click', event);
+  console.log(event.target.dataset.productIndex);
+  allProducts[event.target.dataset.productIndex].clicks++;
+  console.log(allProducts[event.target.dataset.productIndex].clicks);
   chooseRandomPics();
   drawImgs();
+  totalClicks++;
+  keepTheClicksGoing();
 };
 function keepTheClicksGoing() {
-  if (totalClicks < clickLimit)
+  if (totalClicks < clickLimit) {
     drawImgs();
+  }
+  else {
+    imgContainerEl.removeEventListener('click', handleClick);
+    function saveProductsToLocalStorage(allProducts) {
+      localStorage.allProducts = JSON.stringify(allProducts);
+      console.log('Saved to local storage');
+    }
+    saveProductsToLocalStorage(allProducts);
+  }
 };
