@@ -1,0 +1,51 @@
+body {
+  text-align: center;
+}
+header {
+  background-color: grey;
+}
+h1 {
+  text-align: center;
+  color: #87BBA2;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  font-size: 60px;
+  border-bottom:
+}
+h3 {
+  text-align: center;
+  font-size: 20px;
+}
+#left {
+  border: 2px;
+  border-color: black;
+}
+#img-container img{
+  width: 25%;
+}
+canvas {
+  width: 75%;
+  min-width: 400px;
+}
+div {
+  background-color: grey;
+}
+button {
+  text-align: left;
+  font-size: 25px;
+  margin-top: 200px;
+  background: #87BBA2;
+  transition-property: background;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+}
+button:hover {
+  background: #8AE1FC;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
